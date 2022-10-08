@@ -1,0 +1,75 @@
+<!-- ======================== HEAD || CONFIGURACION ARCHIVO HTML ======================== -->
+
+<!-- =================== BODY || MAQUETADO DEL ARCHIVO HTML (Header, Main, Footer) =================== -->
+
+<%- include('./partials/head', {title:"REGISTER"}) %> 
+
+<body class="general_body">
+    <!-- ======================== BODY || MAQUETADO DEL HEADER ======================== -->
+    <%- include('./partials/header') %>
+
+    <!-- ======================== BODY || MAQUETADO DEL MAIN ======================== -->
+    <main class="general_main">
+        <div class="register_return">
+            <a href="/">Inicio</a>
+            <span>/Registro</span>
+        </div>
+        <section class="register_section">
+            <header class="register_section-header" >
+                <h1>registrate</h1>
+            </header>
+            <main class="register_section-main">
+                <div class="register_section_main-option">
+                    <div class="reg_sec_main_opt-reg">
+                        <a href="../users/register">Registrarse</a>
+                    </div>
+                    <div class="reg_sec_main_opt-log">
+                        <a href="../users/login">Iniciar Sesión</a>
+                    </div>
+                </div>
+                <div class="register_section_main-correo">
+                    <button> <i class="fa-brands fa-google"></i> GOOGLE</button>
+                    <P>registrate con el correo electrónico</P>
+                </div>
+                <form action="process" class="register_section_main-form" method="post">
+                    <div class="reg_sec_main_form-container">
+                        <input type="text" name="nombre"  placeholder="ingrese su nombre" value="<%= locals.old && old.nombre ? old.nombre : null %>">
+                        <span class="login_error"> <%= locals.errors && errors.nombre ? errors.nombre.msg : null  %>  </span>
+                    </div>
+                    <div class="reg_sec_main_form-container">
+                        <input type="text" name="apellido" placeholder="ingrese apellido" value="<%= locals.old && old.apellido ? old.apellido : null %>">
+                        <span class="login_error"> <%= locals.errors && errors.apellido ? errors.apellido.msg : null  %>  </span>
+                    </div>
+                    <div class="reg_sec_main_form-container">
+                        <input type="email" name="email" placeholder="ingrese email" value="<%= locals.old && old.email ? old.email : null %>">
+                        <span class="login_error"> <%= locals.errors && errors.email ? errors.email.msg : null  %>  </span>
+                    </div>
+                    <div class="reg_sec_main_form-container">
+                        <input type="password" name="password" placeholder="ingrese password" >
+                        <span class="login_error"> <%= locals.errors && errors.password ? errors.password.msg : null  %>  </span>
+                    </div>
+                    <div class="reg_sec_main_form-container">
+                        <input type="password" name="password2" placeholder="confirme su password " >
+                        <span class="login_error"> <%= locals.errors && errors.password2 ? errors.password2.msg : null  %>  </span>
+                    </div>
+                    <div class="reg_sec_main_form-container">
+                        <button type="submit">Iniciar Sesión</button>
+                    </div>
+                    <div class="reg_sec_main_form-container">
+                        <span>Al hacer clic en Iniciar Sesión acepta nuestra</span>
+                        <a href="">Declaración de privacidad</a>
+                        <span>y</span>
+                        <a href="">Términos y Condiciones</a>
+                    </div>
+                </form>
+            </main>
+        </section>
+        
+        
+    </main>
+
+    <!-- ======================== BODY || MAQUETADO DEL fOOTER ======================== -->
+    <%- include('./partials/footer') %>
+</body>
+
+</html>
